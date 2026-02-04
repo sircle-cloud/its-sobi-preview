@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over | ITS SOBI</title>
+    <meta name="description" content="Maak kennis met Robert - Fotograaf gespecialiseerd in cinematische vastgoed, merk en evenementenfotografie.">
+    
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.css">
+    <link rel="stylesheet" href="../styles-v2.css?v='$(date +%s)'">
+    
+    <style>
+        /* About Page Premium Dark Theme Styles */
+        
+        /* Hero Split Section */
+        .about-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            background: var(--black);
+        }
+        
+        .about-hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--ease-out-expo);
+        }
+        
+        .about-hero:hover .about-hero-image img {
+            transform: scale(1.03);
+        }
+        
+        .about-hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-2xl);
+            padding-top: calc(var(--space-2xl) + 100px);
+        }
+        
+        .about-eyebrow {
+            font-size: var(--text-xs);
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+            margin-bottom: var(--space-lg);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .about-eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background: var(--grey-mid);
+        }
+        
+        .about-hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .about-hero-text {
+            font-size: var(--text-lg);
+            line-height: 1.8;
+            color: var(--grey-light);
+            margin-bottom: var(--space-md);
+            max-width: 500px;
+        }
+        
+        /* Stats Row */
+        .about-stats {
+            display: flex;
+            gap: var(--space-2xl);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--grey);
+        }
+        
+        .about-stat {
+            text-align: left;
+        }
+        
+        .about-stat-number {
+            font-size: var(--text-3xl);
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .about-stat-label {
+            font-size: var(--text-xs);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+        }
+        
+        /* Big Quote Section */
+        .quote-section {
+            padding: var(--space-2xl) var(--space-lg);
+            background: var(--black);
+            text-align: center;
+            border-top: 1px solid var(--grey);
+        }
+        
+        .quote-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .quote-mark {
+            font-size: 6rem;
+            line-height: 0.5;
+            color: var(--grey);
+            font-family: Georgia, serif;
+            margin-bottom: var(--space-md);
+        }
+        
+        .quote-text {
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 500;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-md);
+        }
+        
+        .quote-text em {
+            font-style: italic;
+            color: var(--grey-light);
+        }
+        
+        .quote-author {
+            font-size: var(--text-sm);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+        }
+        
+        /* Approach Section */
+        .approach-section {
+            padding: var(--space-2xl) var(--space-lg);
+            background: var(--black);
+        }
+        
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: var(--space-2xl);
+            max-width: var(--container);
+            margin: 0 auto;
+        }
+        
+        .approach-label {
+            font-size: var(--text-xs);
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+            padding-top: 0.5rem;
+        }
+        
+        .approach-content h2 {
+            font-size: var(--text-2xl);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .approach-text {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--grey-light);
+            margin-bottom: var(--space-md);
+            max-width: 600px;
+        }
+        
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        .value-card {
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+            border: 1px solid var(--grey);
+            border-radius: 12px;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .value-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+        }
+        
+        .value-number {
+            font-size: var(--text-xs);
+            letter-spacing: 0.15em;
+            color: var(--grey-mid);
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+        
+        .value-title {
+            font-size: var(--text-lg);
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .value-text {
+            font-size: var(--text-sm);
+            color: var(--grey-light);
+            line-height: 1.7;
+        }
+        
+        /* Equipment Section */
+        .equipment-section {
+            padding: var(--space-2xl) var(--space-lg);
+            background: var(--black);
+            border-top: 1px solid var(--grey);
+        }
+        
+        .equipment-wrapper {
+            max-width: var(--container);
+            margin: 0 auto;
+        }
+        
+        .equipment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .equipment-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 500;
+        }
+        
+        .equipment-header span {
+            font-size: var(--text-sm);
+            color: var(--grey-mid);
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+        }
+        
+        .equipment-item {
+            text-align: center;
+            padding: var(--space-lg);
+            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+            border: 1px solid var(--grey);
+            border-radius: 12px;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .equipment-item:hover {
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .equipment-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--grey);
+            border-radius: 50%;
+            color: var(--grey-light);
+        }
+        
+        .equipment-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .equipment-name {
+            font-size: var(--text-base);
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .equipment-desc {
+            font-size: var(--text-xs);
+            color: var(--grey-mid);
+        }
+        
+        /* Clients Section */
+        .clients-section {
+            padding: var(--space-xl) var(--space-lg);
+            background: var(--black);
+            border-top: 1px solid var(--grey);
+        }
+        
+        .clients-wrapper {
+            max-width: var(--container);
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .clients-title {
+            font-size: var(--text-sm);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .clients-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-2xl);
+            opacity: 0.6;
+        }
+        
+        .clients-logos img {
+            height: 30px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: opacity 0.4s ease;
+        }
+        
+        .clients-logos img:hover {
+            opacity: 0.8;
+        }
+        
+        /* CTA Section */
+        .about-cta {
+            padding: var(--space-2xl) var(--space-lg);
+            background: var(--black);
+            text-align: center;
+            border-top: 1px solid var(--grey);
+        }
+        
+        .about-cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .about-cta h2 {
+            font-size: var(--text-3xl);
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+        }
+        
+        .about-cta p {
+            font-size: var(--text-base);
+            color: var(--grey-light);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .about-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            font-size: var(--text-base);
+            font-weight: 500;
+            color: var(--black);
+            background: var(--white);
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .about-cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.2);
+        }
+        
+        .about-cta .btn svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+        
+        .about-cta .btn:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-hero {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-hero-image {
+                height: 50vh;
+            }
+            
+            .about-hero-content {
+                padding-top: var(--space-xl);
+            }
+            
+            .approach-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-stats {
+                flex-wrap: wrap;
+                gap: var(--space-lg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero-content {
+                padding: var(--space-xl) var(--space-md);
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-text">VIEW</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header header-dark">
+        <a href="/" class="logo" data-transition>
+            <span class="logo-text">ITS SOBI</span>
+        </a>
+        <nav class="nav">
+            <a href="/projecten/" data-transition data-magnetic>Projecten</a>
+            <a href="/over/" class="active" data-magnetic>Over</a>
+            <a href="/contact/" data-transition data-magnetic>Contact</a>
+        </nav>
+        <a href="https://instagram.com/itssobi" target="_blank" class="header-social" data-magnetic>
+            <span>IG</span>
+        </a>
+    </header>
+
+    <main>
+        <!-- Hero Split -->
+        <section class="about-hero">
+            <div class="about-hero-image">
+                <img src="https://sobi.sircle.dev/wp-content/uploads/2025/12/ITS-SOBI_FILES-104.jpg" alt="Robert - ITS SOBI">
+            </div>
+            <div class="about-hero-content">
+                <span class="about-eyebrow" data-fade-up>Over mij</span>
+                <h1 class="about-hero-title" data-split-lines>Hallo,<br>ik ben Robert</h1>
+                <p class="about-hero-text" data-fade-up data-delay="0.2">
+                    Ik ben een fotograaf met een passie voor het vastleggen van momenten die ertoe doen. Met een cinematische blik en oog voor detail creëer ik beelden die verhalen vertellen.
+                </p>
+                <p class="about-hero-text" data-fade-up data-delay="0.3">
+                    Van wielersport tot evenementen, van vastgoed tot reizen – elk project krijgt mijn volledige aandacht en creativiteit.
+                </p>
+                
+                <div class="about-stats" data-fade-up data-delay="0.4">
+                    <div class="about-stat">
+                        <div class="about-stat-number">10+</div>
+                        <div class="about-stat-label">Jaar ervaring</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">150+</div>
+                        <div class="about-stat-label">Projecten</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">25+</div>
+                        <div class="about-stat-label">Landen</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote -->
+        <section class="quote-section">
+            <div class="quote-wrapper">
+                <div class="quote-mark" data-fade-up>"</div>
+                <p class="quote-text" data-fade-up data-delay="0.1">
+                    Fotografie is niet alleen wat je <em>ziet</em>, maar vooral hoe je het laat <em>voelen</em>.
+                </p>
+                <span class="quote-author" data-fade-up data-delay="0.2">— Robert, ITS SOBI</span>
+            </div>
+        </section>
+
+        <!-- Approach -->
+        <section class="approach-section">
+            <div class="approach-grid">
+                <div class="approach-label" data-fade-up>Mijn Aanpak</div>
+                <div class="approach-content">
+                    <h2 data-fade-up>Cinematisch, minimalistisch en impactvol</h2>
+                    <p class="approach-text" data-fade-up data-delay="0.1">
+                        Elk project begint met een gesprek. Ik wil begrijpen wat jouw verhaal is, wat je wilt uitstralen en welke emotie je wilt overbrengen. Pas dan pak ik mijn camera.
+                    </p>
+                    <p class="approach-text" data-fade-up data-delay="0.2">
+                        Mijn stijl is geïnspireerd door cinema – denk aan perfecte belichting, doordachte composities en een kleurenpalet dat past bij jouw merk. Het resultaat? Beelden die niet alleen mooi zijn, maar ook functioneren.
+                    </p>
+                    
+                    <div class="values-grid">
+                        <div class="value-card" data-fade-up data-delay="0.1">
+                            <span class="value-number">01</span>
+                            <h3 class="value-title">Cinematic</h3>
+                            <p class="value-text">Filmische kwaliteit met aandacht voor licht, compositie en sfeer die je meeneemt in het verhaal.</p>
+                        </div>
+                        <div class="value-card" data-fade-up data-delay="0.2">
+                            <span class="value-number">02</span>
+                            <h3 class="value-title">Minimal</h3>
+                            <p class="value-text">Minder is meer. Focus op wat ertoe doet, zonder afleidende elementen.</p>
+                        </div>
+                        <div class="value-card" data-fade-up data-delay="0.3">
+                            <span class="value-number">03</span>
+                            <h3 class="value-title">Impactvol</h3>
+                            <p class="value-text">Beelden die indruk maken en je doelgroep raken op een emotioneel niveau.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment -->
+        <section class="equipment-section">
+            <div class="equipment-wrapper">
+                <div class="equipment-header">
+                    <h2 data-fade-up>Mijn Toolkit</h2>
+                    <span data-fade-up data-delay="0.1">Equipment</span>
+                </div>
+                <div class="equipment-grid">
+                    <div class="equipment-item" data-fade-up data-delay="0.1">
+                        <div class="equipment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <circle cx="18" cy="9" r="1"/>
+                            </svg>
+                        </div>
+                        <h4 class="equipment-name">Sony Alpha</h4>
+                        <p class="equipment-desc">Full-frame camera</p>
+                    </div>
+                    <div class="equipment-item" data-fade-up data-delay="0.15">
+                        <div class="equipment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <h4 class="equipment-name">Prime Lenzen</h4>
+                        <p class="equipment-desc">24mm, 35mm, 85mm</p>
+                    </div>
+                    <div class="equipment-item" data-fade-up data-delay="0.2">
+                        <div class="equipment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 3v18M5.5 8.5l13 7M5.5 15.5l13-7"/>
+                            </svg>
+                        </div>
+                        <h4 class="equipment-name">DJI Drone</h4>
+                        <p class="equipment-desc">Luchtfotografie</p>
+                    </div>
+                    <div class="equipment-item" data-fade-up data-delay="0.25">
+                        <div class="equipment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="5"/>
+                                <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2"/>
+                            </svg>
+                        </div>
+                        <h4 class="equipment-name">Profoto</h4>
+                        <p class="equipment-desc">Studiobelichting</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clients -->
+        <section class="clients-section">
+            <div class="clients-wrapper">
+                <span class="clients-title" data-fade-up>Gewerkt voor</span>
+                <div class="clients-logos" data-fade-up data-delay="0.2">
+                    <img src="/images/GP-Elite-330x116-1.png" alt="GP Elite">
+                    <img src="/images/bmw-330x116-1.png" alt="BMW">
+                    <img src="/images/Salomon.png" alt="Salomon">
+                    <img src="/images/peakperformance-330x116-1.png" alt="Peak Performance">
+                    <img src="/images/oakley-330x116-1.png" alt="Oakley">
+                    <img src="/images/Landrover.png" alt="Land Rover">
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="about-cta">
+            <div class="about-cta-content">
+                <h2 data-fade-up>Laten we samenwerken</h2>
+                <p data-fade-up data-delay="0.1">
+                    Heb je een project in gedachten? Ik hoor graag over je plannen en denk met plezier mee.
+                </p>
+                <a href="/contact/" class="btn" data-transition data-magnetic data-fade-up data-delay="0.2">
+                    <span>Neem contact op</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <span class="footer-logo">ITS SOBI</span>
+                <p>Cinematische fotografie<br>die verhalen vertelt.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <span class="footer-col-title">Navigatie</span>
+                    <a href="/projecten/" data-transition>Projecten</a>
+                    <a href="/over/" data-transition>Over</a>
+                    <a href="/contact/" data-transition>Contact</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Socials</span>
+                    <a href="https://instagram.com/itssobi" target="_blank">Instagram</a>
+                    <a href="https://linkedin.com/in/sobi" target="_blank">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Contact</span>
+                    <a href="mailto:info@itssobi.nl">info@itssobi.nl</a>
+                    <span>Den Haag, NL</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 ITS SOBI</span>
+            <span>Alle rechten voorbehouden</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js"></script>
+    <script src="../app.js?v='$(date +%s)'"></script>
+    
+    <script>
+        // Hero image parallax
+        gsap.to(".about-hero-image img", {
+            scale: 1.15,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".about-hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+    </script>
+</body>
+</html>
