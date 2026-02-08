@@ -2577,7 +2577,11 @@ body.menu-open {
    ============================================ */
 @media (max-width: 768px) {
     .bento-item {
-        background: transparent !important;
+        background: #f5f5f3 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        isolation: isolate !important;
+        transform: translateZ(0);
     }
     
     .bento-image {
@@ -2585,6 +2589,8 @@ body.menu-open {
         inset: 0 !important;
         width: 100% !important;
         height: 100% !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
     }
     
     .bento-image img {
@@ -2592,6 +2598,7 @@ body.menu-open {
         height: 100% !important;
         object-fit: cover !important;
         object-position: center !important;
+        border-radius: 12px !important;
     }
     
     .bento-content {
