@@ -468,7 +468,7 @@ body.cursor-view .cursor-text {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    background: var(--grey-dark);
+    background: transparent;
 }
 
 .bento-large {
