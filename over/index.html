@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.css">
-    <link rel="stylesheet" href="../styles-v2.css?v='$(date +%s)'">
+    <link rel="stylesheet" href="../styles-v2.css?v=1770246433">
     
     <style>
         /* About Page Premium Dark Theme Styles */
@@ -69,7 +69,7 @@
             font-weight: 500;
             line-height: 1.05;
             letter-spacing: -0.03em;
-            margin-bottom: var(--space-xl);
+            margin-bottom: 100px;
         }
         
         .about-hero-text {
@@ -243,7 +243,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: var(--space-xl);
+            margin-bottom: 100px;
         }
         
         .equipment-header h2 {
@@ -258,7 +258,7 @@
         
         .equipment-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--space-md);
         }
         
@@ -322,26 +322,36 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--grey-mid);
-            margin-bottom: var(--space-xl);
+            margin-bottom: 100px;
         }
         
         .clients-logos {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: var(--space-2xl);
-            opacity: 0.6;
+            gap: var(--space-lg);
+        }
+        
+        .logo-item {
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .clients-logos img {
-            height: 30px;
+            height: 35px;
             width: auto;
-            filter: brightness(0) invert(1);
-            transition: opacity 0.4s ease;
+            max-width: 120px;
+            object-fit: contain;
+            filter: none;
+            transition: transform 0.3s ease;
         }
         
-        .clients-logos img:hover {
-            opacity: 0.8;
+        .logo-item:hover img {
+            transform: scale(1.05);
         }
         
         /* CTA Section */
@@ -459,10 +469,29 @@
             <a href="/over/" class="active" data-magnetic>Over</a>
             <a href="/contact/" data-transition data-magnetic>Contact</a>
         </nav>
-        <a href="https://instagram.com/itssobi" target="_blank" class="header-social" data-magnetic>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <a href="https://www.instagram.com/its.sobi_/" target="_blank" class="header-social" data-magnetic>
             <span>IG</span>
         </a>
     </header>
+
+    <!-- Mobile Menu Fullscreen -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Sluiten">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <nav class="mobile-menu-nav">
+            <a href="/projecten/" data-transition>Projecten</a>
+            <a href="/over/" data-transition>Over</a>
+            <a href="/contact/" data-transition>Contact</a>
+            <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+        </nav>
+    </div>
 
     <main>
         <!-- Hero Split -->
@@ -477,7 +506,7 @@
                     Geen 'van jongs af aan' verhalen van deze kant. Ik ben pas op mijn 28e begonnen met fotograferen. Wat startte met wintersportfotografie is uitgegroeid tot een breed palet aan branches en onderwerpen.
                 </p>
                 <p class="about-hero-text" data-fade-up data-delay="0.3">
-                    Van bruiloften tot motorcross, van verlaten panden tot kitesurfen — ik kan in vrijwel elke situatie uit de voeten en lever altijd cinematische beelden.
+                    Die reis maakt dat ik in enorm veel situaties uit de voeten kan. Van wielersport tot evenementen, van vastgoed tot reizen — elk project krijgt mijn volledige aandacht.
                 </p>
                 
                 <div class="about-stats" data-fade-up data-delay="0.4">
@@ -515,10 +544,10 @@
                 <div class="approach-content">
                     <h2 data-fade-up>Cinematisch, minimalistisch en impactvol</h2>
                     <p class="approach-text" data-fade-up data-delay="0.1">
-                        Elk project begint met een (digitale) kop koffie. Ik wil begrijpen wat jouw verhaal is, wat je wilt uitstralen en welke emotie je wilt overbrengen. Meedenken doe ik graag — pas als het plan staat, pak ik mijn camera.
+                        Elk project begint met een (digitale) kop koffie. Ik wil begrijpen wat jouw verhaal is, wat je wilt uitstralen en welke emotie je wilt overbrengen. Meedenken doe ik graag — pas dan pak ik mijn camera.
                     </p>
                     <p class="approach-text" data-fade-up data-delay="0.2">
-                        Mijn stijl is geïnspireerd door cinema — denk aan perfecte belichting, doordachte composities en een kleurenpalet dat past bij jouw merk. Het resultaat? Beelden die niet alleen mooi zijn, maar ook functioneren.
+                        Mijn stijl is geïnspireerd door cinema – denk aan perfecte belichting, doordachte composities en een kleurenpalet dat past bij jouw merk. Het resultaat? Beelden die niet alleen mooi zijn, maar ook functioneren.
                     </p>
                     
                     <div class="values-grid">
@@ -577,39 +606,18 @@
                                 <path d="M12 3v18M5.5 8.5l13 7M5.5 15.5l13-7"/>
                             </svg>
                         </div>
-                        <h4 class="equipment-name">DJI Drone</h4>
-                        <p class="equipment-desc">FPV Drone</p>
+                        <h4 class="equipment-name">DJI FPV Drone</h4>
+                        <p class="equipment-desc">Luchtfotografie</p>
                     </div>
                     <div class="equipment-item" data-fade-up data-delay="0.25">
                         <div class="equipment-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"/>
-                                <circle cx="12" cy="12" r="3"/>
+                                <circle cx="12" cy="12" r="5"/>
+                                <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2"/>
                             </svg>
                         </div>
                         <h4 class="equipment-name">Canon EF 70-200mm</h4>
                         <p class="equipment-desc">f/2.8 L IS USM III</p>
-                    </div>
-                    <div class="equipment-item" data-fade-up data-delay="0.3">
-                        <div class="equipment-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="2" y="6" width="20" height="12" rx="2"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="18" cy="9" r="1"/>
-                            </svg>
-                        </div>
-                        <h4 class="equipment-name">Canon 5D Mark IV</h4>
-                        <p class="equipment-desc">Full-frame backup</p>
-                    </div>
-                    <div class="equipment-item" data-fade-up data-delay="0.35">
-                        <div class="equipment-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"/>
-                                <circle cx="12" cy="12" r="3"/>
-                            </svg>
-                        </div>
-                        <h4 class="equipment-name">Canon RF 15-35mm</h4>
-                        <p class="equipment-desc">f/2.8 L IS USM</p>
                     </div>
                 </div>
             </div>
@@ -620,33 +628,38 @@
             <div class="clients-wrapper">
                 <span class="clients-title" data-fade-up>Gewerkt voor</span>
                 <div class="clients-logos" data-fade-up data-delay="0.2">
-                    <img src="/images/GP-Elite-330x116-1.png" alt="GP Elite">
-                    <img src="/images/bmw-330x116-1.png" alt="BMW">
-                    <img src="/images/Salomon.png" alt="Salomon">
-                    <img src="/images/peakperformance-330x116-1.png" alt="Peak Performance">
-                    <img src="/images/oakley-330x116-1.png" alt="Oakley">
-                    <img src="/images/Landrover.png" alt="Land Rover">
+                    <div class="logo-item"><img src="/images/logos/GP-Elite-330x116-1.png" alt="GP Elite"></div>
+                    <div class="logo-item"><img src="/images/logos/bmw-330x116-1.png" alt="BMW"></div>
+                    <div class="logo-item"><img src="/images/logos/Salomon.png" alt="Salomon"></div>
+                    <div class="logo-item"><img src="/images/logos/peakperformance-330x116-1.png" alt="Peak Performance"></div>
+                    <div class="logo-item"><img src="/images/logos/oakley-330x116-1.png" alt="Oakley"></div>
+                    <div class="logo-item"><img src="/images/logos/Landrover.png" alt="Land Rover"></div>
+                    <div class="logo-item"><img src="/images/logos/Snowworld-330x116-1.png" alt="SnowWorld"></div>
+                    <div class="logo-item"><img src="/images/logos/Obertauern.png" alt="Obertauern"></div>
+                    <div class="logo-item"><img src="/images/logos/NKSV-330x116-1.png" alt="NKSV"></div>
+                    <div class="logo-item"><img src="/images/logos/Ansho-330x116-1.png" alt="Ansho"></div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="about-cta">
-            <div class="about-cta-content">
-                <h2 data-fade-up>Laten we samenwerken</h2>
-                <p data-fade-up data-delay="0.1">
-                    Heb je een project in gedachten? Ik hoor graag over je plannen en denk met plezier mee.
-                </p>
-                <a href="/contact/" class="btn" data-transition data-magnetic data-fade-up data-delay="0.2">
+        <!-- Global CTA Section -->
+        <section class="global-cta">
+            <div class="global-cta-bg">
+                <img src="/images/cta-background.jpg" alt="Contact">
+                <div class="global-cta-overlay"></div>
+            </div>
+            <div class="global-cta-content">
+                <h2 class="global-cta-title">Laten we samenwerken</h2>
+                <p class="global-cta-text">Heb je een project in gedachten? Ik hoor graag van je.</p>
+                <a href="/contact/" class="global-cta-btn">
                     <span>Neem contact op</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
                     </svg>
                 </a>
             </div>
         </section>
     </main>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-top">
@@ -663,19 +676,20 @@
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Socials</span>
-                    <a href="https://instagram.com/itssobi" target="_blank">Instagram</a>
-                    <a href="https://linkedin.com/in/sobi" target="_blank">LinkedIn</a>
+                    <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/in/robert-de-groot-bb16a04a/" target="_blank">LinkedIn</a>
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Contact</span>
-                    <a href="mailto:info@itssobi.nl">info@itssobi.nl</a>
-                    <span>Den Haag, NL</span>
+                    <a href="mailto:robert@itssobi.com">robert@itssobi.com</a>
+                    <span>Heemskerk, Nederland</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2026 ITS SOBI</span>
-            <span>Alle rechten voorbehouden</span>
+            <span>© 2026 ITS SOBI | Alle rechten voorbehouden</span>
+            
+            <a href="https://www.sirclecreative.com" target="_blank" class="footer-credit">Created by: SircleCreative</a>
         </div>
     </footer>
 
@@ -683,8 +697,38 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js"></script>
-    <script src="../app.js?v='$(date +%s)'"></script>
-    
+    <script src="../app.js?v=1770251130"></script>
+    <script>
+        // Mobile Menu Handler
+        (function() {
+            var hamburger = document.querySelector('.hamburger');
+            var mobileMenu = document.querySelector('.mobile-menu');
+            var closeBtn = document.querySelector('.mobile-menu-close');
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('is-active');
+                    mobileMenu.classList.toggle('is-active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            if (closeBtn && mobileMenu && hamburger) {
+                closeBtn.addEventListener('click', function() {
+                    hamburger.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-active');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+            if (mobileMenu) {
+                mobileMenu.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (hamburger) hamburger.classList.remove('is-active');
+                        mobileMenu.classList.remove('is-active');
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+            }
+        })();
+    </script>
     <script>
         // Hero image parallax
         gsap.to(".about-hero-image img", {

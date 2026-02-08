@@ -80,17 +80,17 @@ body {
     color: var(--white);
     background: var(--black);
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
 }
 
 a {
     color: inherit;
     text-decoration: none;
-    cursor: none;
+    cursor: auto;
 }
 
 button {
-    cursor: none;
+    cursor: auto;
 }
 
 img {
@@ -598,7 +598,7 @@ body.cursor-view .cursor-text {
 }
 
 .about-image {
-    position: sticky;
+    position: relative;
     top: var(--space-xl);
     height: calc(100vh - var(--space-xl) * 2);
     border-radius: 8px;
@@ -697,7 +697,7 @@ body.cursor-view .cursor-text {
     padding: var(--space-lg) 0;
     border-bottom: 1px solid var(--grey);
     position: relative;
-    cursor: none;
+    cursor: auto;
 }
 
 .service-item:first-child {
@@ -977,9 +977,8 @@ body.cursor-view .cursor-text {
     padding: var(--space-lg) var(--space-lg);
     background: var(--black);
     border-bottom: 1px solid var(--grey);
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    position: relative;
+    z-index: 1;
 }
 
 .filter-buttons {
@@ -1864,3 +1863,705 @@ body.cursor-view .cursor-text {
     }
 }
 
+
+/* ============================================
+   CTA Section with Background Image
+   ============================================ */
+.cta-section {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.cta-section .cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.cta-section .cta-title {
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cta-section .cta-text {
+    color: rgba(255,255,255,0.9);
+}
+
+/* ============================================
+   Global CTA Section
+   ============================================ */
+.global-cta {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.global-cta-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.global-cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.global-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.global-cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 800px;
+}
+
+.global-cta-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.global-cta-text {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.global-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.global-cta-btn:hover {
+    background: #ffffff;
+    color: #111111;
+    border-color: #ffffff;
+}
+
+.global-cta-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.global-cta-btn:hover svg {
+    transform: translate(4px, -4px);
+}
+
+/* Footer Credit */
+.footer-credit {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+}
+
+.footer-credit:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   Vertical Timeline Section
+   ============================================ */
+.timeline-section {
+    padding: 120px 0;
+    background: var(--off-white, #f5f5f3);
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.timeline-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.timeline-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent 0%, #ddd 10%, #ddd 90%, transparent 100%);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+    padding-right: calc(50% + 40px);
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+    padding-left: calc(50% + 40px);
+    text-align: left;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: translateX(-50%) scale(1.1);
+    background: #333;
+}
+
+.dot-number {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.05em;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-step-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.timeline-step-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .timeline-section {
+        padding: 80px 20px;
+    }
+    
+    .timeline-container {
+        padding: 0 20px 0 50px;
+    }
+    
+    .timeline-line {
+        left: 30px;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        flex-direction: row;
+        padding: 0 0 0 50px;
+        text-align: left;
+    }
+    
+    .timeline-dot {
+        left: 30px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .timeline-step-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   Mobile Menu - Hamburger & Fullscreen
+   ============================================ */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+}
+
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.is-active .hamburger-line:first-child {
+    transform: rotate(45deg) translate(3px, 3px);
+}
+
+.hamburger.is-active .hamburger-line:last-child {
+    transform: rotate(-45deg) translate(3px, -3px);
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: #0a0a0a;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.mobile-menu-nav a {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+}
+
+.mobile-menu.is-active .mobile-menu-nav a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu.is-active .mobile-menu-nav a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu.is-active .mobile-menu-nav a:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu.is-active .mobile-menu-nav a:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu.is-active .mobile-menu-nav a:nth-child(4) { transition-delay: 0.25s; }
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Mobile: Show hamburger, hide nav */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav,
+    .header-social {
+        display: none;
+    }
+    
+    .header {
+        z-index: 1002;
+    }
+}
+
+/* ============================================
+   About Section - Mobile Fix (show photo)
+   ============================================ */
+@media (max-width: 1024px) {
+    .about {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    .about-image-col {
+        display: block !important;
+        order: -1;
+    }
+    
+    .about-image {
+        max-width: 280px;
+        margin: 0 auto;
+        border-radius: 200px;
+        overflow: hidden;
+    }
+    
+    .about-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+    }
+    
+    .about-image-caption {
+        text-align: center;
+        margin-top: var(--space-sm);
+    }
+    
+    .about-content-col {
+        text-align: center;
+    }
+    
+    .about-stats {
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   Timeline Section - Fix z-index overlap
+   ============================================ */
+.timeline-section {
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-header {
+    padding-top: 0;
+}
+
+/* Ensure header stays above everything */
+.header {
+    z-index: 1000 !important;
+}
+
+/* Fix hamburger visibility */
+.hamburger-line {
+    background: #fff !important;
+}
+
+/* Hamburger on light backgrounds */
+.header.is-scrolled .hamburger-line {
+    background: #1a1a1a !important;
+}
+
+/* Force mobile menu fullscreen properly */
+.mobile-menu.is-active {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #0a0a0a !important;
+}
+
+/* ============================================
+   About Section - Complete Mobile Fix
+   ============================================ */
+@media (max-width: 768px) {
+    .about {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 60px 20px !important;
+        gap: 40px !important;
+    }
+    
+    .about-image-col {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        order: -1 !important;
+        width: 100% !important;
+    }
+    
+    .about-image {
+        width: 200px !important;
+        height: 200px !important;
+        max-width: none !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        margin: 0 auto !important;
+    }
+    
+    .about-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center top !important;
+    }
+    
+    .about-image-caption {
+        text-align: center !important;
+        margin-top: 16px !important;
+        font-size: 0.85rem !important;
+        color: #888 !important;
+    }
+    
+    .about-content-col {
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .about-title {
+        font-size: 1.75rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .about-text {
+        font-size: 0.95rem !important;
+        max-width: 100% !important;
+    }
+    
+    .about-stats {
+        justify-content: center !important;
+        gap: 30px !important;
+    }
+    
+    .stat-number {
+        font-size: 2rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* ============================================
+   Timeline Section - Mobile Fix (Clean Layout)
+   ============================================ */
+@media (max-width: 768px) {
+    .timeline-section {
+        padding: 60px 20px !important;
+    }
+    
+    .timeline-header {
+        margin-bottom: 50px !important;
+        text-align: center !important;
+    }
+    
+    .timeline-title {
+        font-size: 1.75rem !important;
+    }
+    
+    .timeline-container {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .timeline-line {
+        display: none !important;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 0 !important;
+        margin-bottom: 40px !important;
+        text-align: left !important;
+        position: relative !important;
+    }
+    
+    .timeline-dot {
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+        width: 50px !important;
+        height: 50px !important;
+        margin-bottom: 16px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .timeline-content {
+        width: 100% !important;
+        padding-left: 0 !important;
+    }
+    
+    .timeline-step-title {
+        font-size: 1.25rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .timeline-step-text {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: #555 !important;
+    }
+}
+
+/* ============================================
+   Mobile Menu Close Button
+   ============================================ */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1003;
+    padding: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-close:hover {
+    transform: rotate(90deg);
+    opacity: 0.7;
+}
+
+.mobile-menu-close svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ============================================
+   Bento Grid - Mobile Image Fix (no black bars)
+   ============================================ */
+@media (max-width: 768px) {
+    .bento-item {
+        background: transparent !important;
+    }
+    
+    .bento-image {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    .bento-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+    
+    .bento-content {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Fix cursor visibility - ensure standard cursor shows when custom cursor fails */
+@media (hover: none), (pointer: coarse) {
+    body, a, button, .service-item { cursor: auto !important; }
+    .cursor { display: none !important; }
+}
+
+/* Fallback for when JS doesn't load */
+body:not(.cursor-active), 
+body:not(.cursor-active) a, 
+body:not(.cursor-active) button { 
+    cursor: auto; 
+}
+
+/* Mobile Menu Social Links */
+.mobile-menu-social {
+    display: flex;
+    gap: 2rem;
+    margin-top: auto;
+    padding-bottom: 3rem;
+}
+
+.mobile-menu-social a {
+    font-size: 0.875rem;
+    color: var(--grey);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-social a:hover {
+    color: var(--white);
+}
+
+.mobile-menu.is-active .mobile-menu-social a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu-social a:nth-child(1) { transition-delay: 0.3s; }
+.mobile-menu-social a:nth-child(2) { transition-delay: 0.35s; }

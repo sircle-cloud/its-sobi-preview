@@ -18,7 +18,7 @@
     <!-- Lenis Smooth Scroll -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.css">
     
-    <link rel="stylesheet" href="styles-v2.css?v=1770189210">
+    <link rel="stylesheet" href="styles-v2.css?v=1770246433">
 </head>
 <body>
     <!-- Custom Cursor -->
@@ -43,10 +43,29 @@
             <a href="/over/" data-transition data-magnetic>Over</a>
             <a href="/contact/" data-transition data-magnetic>Contact</a>
         </nav>
-        <a href="https://instagram.com/itssobi" target="_blank" class="header-social" data-magnetic>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <a href="https://www.instagram.com/its.sobi_/" target="_blank" class="header-social" data-magnetic>
             <span>IG</span>
         </a>
     </header>
+
+    <!-- Mobile Menu Fullscreen -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Sluiten">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <nav class="mobile-menu-nav">
+            <a href="/projecten/" data-transition>Projecten</a>
+            <a href="/over/" data-transition>Over</a>
+            <a href="/contact/" data-transition>Contact</a>
+            <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+        </nav>
+    </div>
 
     <!-- 1. Hero Section -->
     <section class="hero" data-hero-zoom>
@@ -117,7 +136,7 @@
             </div>
             <div class="horizontal-panel" data-horizontal-scroll-panel>
                 <div class="panel-image">
-                    <img src="images/ITS-SOBI_FILES-113.jpg" alt="Corporate">
+                    <img src="images/projects/circular-textile-days-2025/Circular-Textile-Days-2025-1.jpg" alt="Corporate">
                 </div>
                 <div class="panel-content">
                     <span class="panel-number">02</span>
@@ -209,7 +228,7 @@
             <!-- Large Feature -->
             <a href="/projecten/cios-ijsland-2025/" class="bento-item bento-large" data-work-item data-transition>
                 <div class="bento-image">
-                    <img src="images/ITS-SOBI_FILES-104.jpg" alt="CIOS IJsland 2025">
+                    <img src="images/portfolio/cios-ijsland.jpg?v=1770247609" alt="CIOS IJsland 2025">
                 </div>
                 <div class="bento-content">
                     <span class="bento-category">Commercial</span>
@@ -222,7 +241,7 @@
             <!-- Medium -->
             <a href="/projecten/kwpn-stallion-show/" class="bento-item bento-medium" data-work-item data-transition>
                 <div class="bento-image">
-                    <img src="images/ITS-SOBI_FILES-91.jpg" alt="KWPN Stallion Show">
+                    <img src="images/portfolio/kwpn-stallion-show.jpg?v=1770247609" alt="KWPN Stallion Show">
                 </div>
                 <div class="bento-content">
                     <span class="bento-category">Events</span>
@@ -235,7 +254,7 @@
             <!-- Small -->
             <a href="/projecten/sail-afvalzorg-2025/" class="bento-item bento-small" data-work-item data-transition>
                 <div class="bento-image">
-                    <img src="images/real-estate.jpg" alt="SAIL Afvalzorg 2025">
+                    <img src="images/portfolio/sail-afvalzorg.jpg?v=1770247609" alt="SAIL Afvalzorg 2025">
                 </div>
                 <div class="bento-content">
                     <span class="bento-category">Events</span>
@@ -248,7 +267,7 @@
             <!-- Wide -->
             <a href="/projecten/lezyne-garcia/" class="bento-item bento-wide" data-work-item data-transition>
                 <div class="bento-image">
-                    <img src="images/hero-cyclist.jpg" alt="Lezyne Garcia">
+                    <img src="images/portfolio/lezyne-garcia.jpg?v=1770247609" alt="Lezyne Garcia">
                 </div>
                 <div class="bento-content">
                     <span class="bento-category">Commercial</span>
@@ -261,7 +280,7 @@
             <!-- Medium -->
             <a href="/projecten/freshminds-zomerfeest/" class="bento-item bento-medium" data-work-item data-transition>
                 <div class="bento-image">
-                    <img src="images/events-cocktail.jpg" alt="Freshminds Zomerfeest">
+                    <img src="images/portfolio/freshminds-zomerfeest.jpg?v=1770247609" alt="Freshminds Zomerfeest">
                 </div>
                 <div class="bento-content">
                     <span class="bento-category">Events</span>
@@ -274,7 +293,7 @@
             <!-- Large -->
             <a href="/projecten/pleinitude-villars/" class="bento-item bento-large" data-work-item data-transition>
                 <div class="bento-image">
-                    <img src="images/ITS-SOBI_FILES-85.jpg" alt="Pleinitude Villars">
+                    <img src="images/portfolio/pleinitude-villars.jpg?v=1770247609" alt="Pleinitude Villars">
                 </div>
                 <div class="bento-content">
                     <span class="bento-category">Travel</span>
@@ -295,58 +314,67 @@
         </div>
     </section>
 
-    <!-- 6. Werkwijze - 3 Stappen -->
-    <section class="process">
-        <div class="section-header">
-            <div class="section-number" data-fade-up>Werkwijze</div>
-            <h2 class="section-title" data-split-lines>Hoe we samenwerken</h2>
+    <!-- 6. Werkwijze - Vertical Timeline -->
+    <section class="timeline-section">
+        <div class="timeline-header">
+            <span class="timeline-label">Werkwijze</span>
+            <h2 class="timeline-title">Hoe we samenwerken</h2>
         </div>
 
-        <div class="process-steps">
-            <div class="process-step" data-fade-up>
-                <div class="step-number">01</div>
-                <div class="step-content">
-                    <h3>Kennismaking</h3>
-                    <p>We bespreken jouw visie, doelen en wensen. Wat wil je bereiken met de beelden? Ik denk mee over concept en locatie.</p>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item" data-timeline>
+                <div class="timeline-dot">
+                    <span class="dot-number">01</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-step-title">Kennismaking</h3>
+                    <p class="timeline-step-text">We bespreken jouw visie, doelen en wensen. Wat wil je bereiken met de beelden? Ik denk mee over concept en locatie.</p>
                 </div>
             </div>
-            <div class="process-step" data-fade-up data-delay="0.1">
-                <div class="step-number">02</div>
-                <div class="step-content">
-                    <h3>De Shoot</h3>
-                    <p>Op de dag zelf zorg ik voor een relaxte sfeer waarin alles soepel verloopt. Ik regel de techniek, jij focust op het moment.</p>
+
+            <div class="timeline-item" data-timeline>
+                <div class="timeline-dot">
+                    <span class="dot-number">02</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-step-title">De Shoot</h3>
+                    <p class="timeline-step-text">Op de dag zelf zorg ik voor een relaxte sfeer waarin alles soepel verloopt. Ik regel de techniek, jij focust op het moment.</p>
                 </div>
             </div>
-            <div class="process-step" data-fade-up data-delay="0.2">
-                <div class="step-number">03</div>
-                <div class="step-content">
-                    <h3>Oplevering</h3>
-                    <p>Binnen twee weken ontvang je de professioneel bewerkte beelden, klaar voor gebruik op al je kanalen.</p>
+
+            <div class="timeline-item" data-timeline>
+                <div class="timeline-dot">
+                    <span class="dot-number">03</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-step-title">Oplevering</h3>
+                    <p class="timeline-step-text">Binnen twee weken ontvang je de professioneel bewerkte beelden, klaar voor gebruik op al je kanalen.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. Contact CTA -->
-    <section class="contact-cta">
-        <div class="contact-cta-content">
-            <h2 class="contact-cta-title" data-split-lines>
-                Klaar om je<br>
-                verhaal te vertellen?
-            </h2>
-            <a href="/contact/" class="contact-cta-btn" data-magnetic data-transition>
-                <span class="btn-text">Neem contact op</span>
-                <span class="btn-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
-                </span>
+
+    <!-- Global CTA Section -->
+    <section class="global-cta">
+        <div class="global-cta-bg">
+            <img src="/images/cta-background.jpg" alt="Contact">
+            <div class="global-cta-overlay"></div>
+        </div>
+        <div class="global-cta-content">
+            <h2 class="global-cta-title">Laten we samenwerken</h2>
+            <p class="global-cta-text">Heb je een project in gedachten? Ik hoor graag van je.</p>
+            <a href="/contact/" class="global-cta-btn">
+                <span>Neem contact op</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
             </a>
         </div>
-        <div class="contact-cta-bg">
-            <img src="images/ITS-SOBI_FILES-113.jpg" alt="Contact">
-        </div>
     </section>
+
 
     <!-- 8. Footer -->
     <footer class="footer">
@@ -364,19 +392,20 @@
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Socials</span>
-                    <a href="https://instagram.com/itssobi" target="_blank">Instagram</a>
-                    <a href="https://linkedin.com/in/sobi" target="_blank">LinkedIn</a>
+                    <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/in/robert-de-groot-bb16a04a/" target="_blank">LinkedIn</a>
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Contact</span>
-                    <a href="mailto:info@itssobi.nl">info@itssobi.nl</a>
-                    <span>Den Haag, NL</span>
+                    <a href="mailto:robert@itssobi.com">robert@itssobi.com</a>
+                    <span>Heemskerk, Nederland</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2026 ITS SOBI</span>
-            <span>Alle rechten voorbehouden</span>
+            <span>© 2026 ITS SOBI | Alle rechten voorbehouden</span>
+            
+            <a href="https://www.sirclecreative.com" target="_blank" class="footer-credit">Created by: SircleCreative</a>
         </div>
     </footer>
 
@@ -385,6 +414,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js"></script>
-    <script src="app.js?v=20260204"></script>
+    <script src="app.js?v=1770251130"></script>
 </body>
 </html>

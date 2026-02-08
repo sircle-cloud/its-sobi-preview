@@ -7,7 +7,7 @@
     <meta name="description" content="Neem contact op met ITS SOBI voor cinematische fotografie projecten.">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.css">
-    <link rel="stylesheet" href="../styles-v2.css?v=1738944000">
+    <link rel="stylesheet" href="../styles-v2.css?v=1770246433">
     
     <style>
         /* Contact Page Premium Styles */
@@ -359,6 +359,29 @@
             height: 20px;
         }
         
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero-mega {
+                min-height: 60vh;
+                padding: var(--space-lg);
+                padding-top: calc(var(--space-lg) + 80px);
+            }
+            
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* FAQ Section */
         .faq-section {
             max-width: 800px;
@@ -366,7 +389,6 @@
             padding: 6rem 2rem;
             border-top: 1px solid #2a2a2a;
         }
-        .faq-wrapper { }
         .faq-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -392,7 +414,6 @@
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 500;
         }
-        .faq-list { }
         .faq-item {
             border-bottom: 1px solid #2a2a2a;
         }
@@ -442,29 +463,6 @@
             margin-bottom: 0.75rem;
         }
         .faq-answer p:last-child { margin-bottom: 0; }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .contact-info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .contact-hero-mega {
-                min-height: 60vh;
-                padding: var(--space-lg);
-                padding-top: calc(var(--space-lg) + 80px);
-            }
-            
-            .contact-info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
@@ -484,10 +482,29 @@
             <a href="/over/" data-transition data-magnetic>Over</a>
             <a href="/contact/" class="active" data-magnetic>Contact</a>
         </nav>
-        <a href="https://instagram.com/itssobi" target="_blank" class="header-social" data-magnetic>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <a href="https://www.instagram.com/its.sobi_/" target="_blank" class="header-social" data-magnetic>
             <span>IG</span>
         </a>
     </header>
+
+    <!-- Mobile Menu Fullscreen -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Sluiten">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <nav class="mobile-menu-nav">
+            <a href="/projecten/" data-transition>Projecten</a>
+            <a href="/over/" data-transition>Over</a>
+            <a href="/contact/" data-transition>Contact</a>
+            <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+        </nav>
+    </div>
 
     <main class="contact-page">
         <!-- Big Hero Section -->
@@ -504,8 +521,8 @@
                 <p class="contact-mega-subtitle" data-fade-up data-delay="0.2">
                     Opzoek naar iemand die jouw bedrijf, evenement of project op een unieke manier in beeld brengt? Plan een (digitale) kop koffie met me in!
                 </p>
-                <a href="mailto:info@itssobi.nl" class="contact-mega-cta" data-magnetic data-fade-up data-delay="0.4">
-                    <span>info@itssobi.nl</span>
+                <a href="mailto:robert@itssobi.com" class="contact-mega-cta" data-magnetic data-fade-up data-delay="0.4">
+                    <span>robert@itssobi.com</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -523,7 +540,7 @@
                 </div>
                 <span class="contact-card-label">Email</span>
                 <span class="contact-card-value">
-                    <a href="mailto:info@itssobi.nl">info@itssobi.nl</a>
+                    <a href="mailto:robert@itssobi.com">robert@itssobi.com</a>
                 </span>
             </div>
             
@@ -535,7 +552,7 @@
                     </svg>
                 </div>
                 <span class="contact-card-label">Locatie</span>
-                <span class="contact-card-value">Den Haag, NL</span>
+                <span class="contact-card-value">Heemskerk, Nederland</span>
             </div>
             
             <div class="contact-card" data-fade-up data-delay="0.2">
@@ -570,7 +587,7 @@
                 </p>
             </div>
             
-            <form class="contact-form" action="https://formspree.io/f/xkgwzwoj" method="POST">
+            <form class="contact-form" action="mailto:robert@itssobi.com" enctype="text/plain" method="POST">
                 <div class="form-group" data-fade-up data-delay="0.2">
                     <input type="text" name="name" class="form-input" placeholder="Je naam" required>
                 </div>
@@ -664,27 +681,20 @@
         <section class="contact-social-section">
             <span class="contact-social-title">Volg mij op</span>
             <div class="contact-social-links">
-                <a href="https://instagram.com/itssobi" target="_blank" class="contact-social-link" aria-label="Instagram" data-magnetic>
+                <a href="https://www.instagram.com/its.sobi_/" target="_blank" class="contact-social-link" aria-label="Instagram" data-magnetic>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
-                <a href="https://linkedin.com/in/itssobi" target="_blank" class="contact-social-link" aria-label="LinkedIn" data-magnetic>
+                <a href="https://www.linkedin.com/in/robert-de-groot-bb16a04a" target="_blank" class="contact-social-link" aria-label="LinkedIn" data-magnetic>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
-                <a href="https://vimeo.com/itssobi" target="_blank" class="contact-social-link" aria-label="Vimeo" data-magnetic>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22.5 7.3c-.1 2.3-1.7 5.5-4.8 9.5-3.2 4.2-5.9 6.3-8.1 6.3-1.4 0-2.5-1.3-3.4-3.8L4.4 13a3.6 3.6 0 0 0-2.6-2.5c-.2 0-.8.4-1.8 1l-1-1.3C1.1 9 3.2 7.5 5.2 6c1.5-1.3 2.6-2 3.4-2 1.8-.2 2.9 1 3.3 3.6.5 2.8.8 4.5 1 5.1.5 2.4 1.1 3.6 1.8 3.6.5 0 1.3-.8 2.3-2.4 1-1.6 1.6-2.8 1.6-3.7.2-1.5-.4-2.2-1.8-2.2-.6 0-1.3.1-2 .4 1.3-4.4 3.9-6.5 7.7-6.4 2.8 0 4.1 1.9 4 5.3z"/>
-                    </svg>
-                </a>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -703,19 +713,20 @@
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Socials</span>
-                    <a href="https://instagram.com/itssobi" target="_blank">Instagram</a>
-                    <a href="https://linkedin.com/in/sobi" target="_blank">LinkedIn</a>
+                    <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/in/robert-de-groot-bb16a04a/" target="_blank">LinkedIn</a>
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Contact</span>
-                    <a href="mailto:info@itssobi.nl">info@itssobi.nl</a>
-                    <span>Den Haag, NL</span>
+                    <a href="mailto:robert@itssobi.com">robert@itssobi.com</a>
+                    <span>Heemskerk, Nederland</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2026 ITS SOBI</span>
-            <span>Alle rechten voorbehouden</span>
+            <span>© 2026 ITS SOBI | Alle rechten voorbehouden</span>
+            
+            <a href="https://www.sirclecreative.com" target="_blank" class="footer-credit">Created by: SircleCreative</a>
         </div>
     </footer>
 
@@ -723,16 +734,47 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js"></script>
-    <script src="../app.js?v=1738944000"></script>
+    <script src="../app.js?v=1770251130"></script>
     <script>
-    document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.parentElement;
-            const wasActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            if (!wasActive) item.classList.add('active');
+        // Mobile Menu Handler
+        (function() {
+            var hamburger = document.querySelector('.hamburger');
+            var mobileMenu = document.querySelector('.mobile-menu');
+            var closeBtn = document.querySelector('.mobile-menu-close');
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('is-active');
+                    mobileMenu.classList.toggle('is-active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            if (closeBtn && mobileMenu && hamburger) {
+                closeBtn.addEventListener('click', function() {
+                    hamburger.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-active');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+            if (mobileMenu) {
+                mobileMenu.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (hamburger) hamburger.classList.remove('is-active');
+                        mobileMenu.classList.remove('is-active');
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+            }
+        })();
+    </script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
         });
-    });
     </script>
 </body>
 </html>

@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.css">
-    <link rel="stylesheet" href="../../styles-v2.css?v=1770189210">
+    <link rel="stylesheet" href="../../styles-v2.css?v=1770246433">
 </head>
 <body>
     <div class="cursor">
@@ -25,14 +25,36 @@
             <a href="/over/" data-transition data-magnetic>Over</a>
             <a href="/contact/" data-transition data-magnetic>Contact</a>
         </nav>
-        <a href="https://instagram.com/itssobi" target="_blank" class="header-social" data-magnetic>
+        <button class="hamburger" onclick="this.classList.toggle('is-active');document.querySelector('.mobile-menu').classList.toggle('is-active');" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <a href="https://www.instagram.com/its.sobi_/" target="_blank" class="header-social" data-magnetic>
             <span>IG</span>
         </a>
     </header>
 
+    <!-- Mobile Menu Fullscreen -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Sluiten">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <nav class="mobile-menu-nav">
+            <a href="/projecten/" data-transition>Projecten</a>
+            <a href="/over/" data-transition>Over</a>
+            <a href="/contact/" data-transition>Contact</a>
+        </nav>
+        <div class="mobile-menu-social">
+            <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/robertsoest/" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+
     <section class="project-hero">
         <div class="project-hero-image">
-            <img src="../../images/projects/circular-textile-days-2025/Circular-Textile-Days-2025-8.jpg" alt="Circular Textile Days 2025">
+            <img src="../../images/projects/circular-textile-days-2025/Circular-Textile-Days-2025-11.jpg" alt="Circular Textile Days 2025">
         </div>
         <div class="project-hero-content">
             <span class="project-hero-category">Events</span>
@@ -76,7 +98,7 @@
     <section class="project-gallery">
         <div class="gallery-grid">
             <div class="gallery-item gallery-full">
-                <img src="../../images/projects/circular-textile-days-2025/Circular-Textile-Days-2025-8.jpg" alt="Circular Textile Days">
+                <img src="../../images/projects/circular-textile-days-2025/Circular-Textile-Days-2025-11.jpg" alt="Circular Textile Days">
             </div>
             <div class="gallery-item gallery-half">
                 <img src="../../images/projects/circular-textile-days-2025/Circular-Textile-Days-2025-24.jpg" alt="Circular Textile Days">
@@ -132,25 +154,25 @@
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Socials</span>
-                    <a href="https://instagram.com/itssobi" target="_blank">Instagram</a>
-                    <a href="https://linkedin.com/in/sobi" target="_blank">LinkedIn</a>
+                    <a href="https://www.instagram.com/its.sobi_/" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/in/robert-de-groot-bb16a04a/" target="_blank">LinkedIn</a>
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Contact</span>
-                    <a href="mailto:info@itssobi.nl">info@itssobi.nl</a>
-                    <span>Den Haag, NL</span>
+                    <a href="mailto:robert@itssobi.com">robert@itssobi.com</a>
+                    <span>Heemskerk, Nederland</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2026 ITS SOBI</span>
-            <span>Alle rechten voorbehouden</span>
+            <span>© 2026 ITS SOBI | Alle rechten voorbehouden</span>
+            
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js"></script>
-    <script src="../../app.js?v=20260204"></script>
+    <script src="../../app.js?v=1770251130"></script>
 </body>
 </html>

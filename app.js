@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger, Flip);
 // Lenis Smooth Scroll
 // ============================================
 const lenis = new Lenis({
-    duration: 1.4,
+    duration: 1.0,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
-    touchMultiplier: 1.5,
+    touchMultiplier: 2,
 });
 
 lenis.on('scroll', ScrollTrigger.update);
@@ -276,7 +276,7 @@ function initScrollAnimations() {
         
         ScrollTrigger.create({
             trigger: el,
-            start: 'top 80%',
+            start: "top 95%",
             once: true,
             onEnter: () => {
                 gsap.to(el.querySelectorAll('.line-inner'), {
@@ -460,7 +460,7 @@ function initAbout() {
         
         ScrollTrigger.create({
             trigger: stat,
-            start: 'top 80%',
+            start: "top 95%",
             once: true,
             onEnter: () => {
                 gsap.to(stat, {
@@ -588,3 +588,170 @@ document.addEventListener('DOMContentLoaded', initBentoAnimation);
 
 // Also run after GSAP animations
 setTimeout(initBentoAnimation, 1000);
+
+// ============================================
+// Timeline Scroll Animation
+// ============================================
+function initTimelineAnimation() {
+    const timelineItems = document.querySelectorAll("[data-timeline]");
+    
+    if (!timelineItems.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("is-visible");
+                }, index * 200);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: "0px 0px -50px 0px"
+    });
+    
+    timelineItems.forEach(item => observer.observe(item));
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", initTimelineAnimation);
+setTimeout(initTimelineAnimation, 500);
+
+// ============================================
+// Mobile Hamburger Menu
+// ============================================
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body;
+    
+    if (!hamburger || !mobileMenu) return;
+    
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.contains('is-active');
+        
+        hamburger.classList.toggle('is-active');
+        mobileMenu.classList.toggle('is-active');
+        body.classList.toggle('menu-open');
+        hamburger.setAttribute('aria-expanded', !isOpen);
+    });
+    
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('is-active');
+            mobileMenu.classList.remove('is-active');
+            body.classList.remove('menu-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initMobileMenu);
+
+// ============================================
+// Stats Fallback - Ensure numbers show
+// ============================================
+function initStatsFallback() {
+    const stats = document.querySelectorAll('.stat-number');
+    
+    // After 3 seconds, if stats still show 0, force update
+    setTimeout(() => {
+        stats.forEach(stat => {
+            if (stat.textContent === '0' || stat.textContent === '0+') {
+                const originalText = stat.getAttribute('data-original') || stat.textContent;
+                // Get value from HTML or default
+                const values = {'150+': 150, '50+': 50, '5+': 5};
+                const statIndex = Array.from(stats).indexOf(stat);
+                const defaultValues = [150, 50, 5];
+                const endValue = defaultValues[statIndex] || 100;
+                stat.textContent = endValue + '+';
+            }
+        });
+    }, 3000);
+}
+
+document.addEventListener('DOMContentLoaded', initStatsFallback);
+
+// ============================================
+// Mobile Menu Close Button
+// ============================================
+function initMobileMenuClose() {
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body;
+    
+    if (!closeBtn || !mobileMenu) return;
+    
+    closeBtn.addEventListener('click', () => {
+        hamburger.classList.remove('is-active');
+        mobileMenu.classList.remove('is-active');
+        body.classList.remove('menu-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initMobileMenuClose);
+
+// ============================================
+// Re-initialize mobile menu (fallback for late loading)
+// ============================================
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        initMobileMenu();
+        initMobileMenuClose();
+    });
+} else {
+    // DOM already loaded, run immediately
+    initMobileMenu();
+    initMobileMenuClose();
+}
+
+// ============================================
+// IMMEDIATE INITIALIZATION
+// ============================================
+(function() {
+    // Mobile Menu
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    const body = document.body;
+    
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+            const isOpen = hamburger.classList.contains('is-active');
+            hamburger.classList.toggle('is-active');
+            mobileMenu.classList.toggle('is-active');
+            body.classList.toggle('menu-open');
+            hamburger.setAttribute('aria-expanded', !isOpen);
+        });
+        
+        // Close menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('is-active');
+                mobileMenu.classList.remove('is-active');
+                body.classList.remove('menu-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+    
+    if (closeBtn && mobileMenu && hamburger) {
+        closeBtn.addEventListener('click', function() {
+            hamburger.classList.remove('is-active');
+            mobileMenu.classList.remove('is-active');
+            body.classList.remove('menu-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    }
+})();
+
+// Fallback: Re-init mobile menu if DOMContentLoaded already fired
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(function() {
+        initMobileMenu();
+        initMobileMenuClose();
+    }, 100);
+}
