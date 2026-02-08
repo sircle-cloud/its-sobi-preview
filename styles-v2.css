@@ -1452,6 +1452,44 @@ body.cursor-view .cursor-text {
 }
 
 /* ============================================
+   Horizontal Scroll - Mobile Vertical Fallback
+   ============================================ */
+@media (max-width: 1024px) {
+    .horizontal-scroll {
+        overflow: visible;
+        height: auto !important;
+        position: relative !important;
+    }
+    
+    .horizontal-scroll-panels {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100% !important;
+        transform: none !important;
+    }
+    
+    .horizontal-panel {
+        width: 100% !important;
+        min-height: 60vh;
+        height: 60vh;
+    }
+    
+    .horizontal-panel:first-child {
+        width: 100% !important;
+    }
+    
+    .panel-content {
+        left: 5%;
+        padding: var(--space-md);
+    }
+    
+    .panel-title {
+        font-size: var(--text-2xl);
+    }
+}
+
+/* ============================================
    Animations (CSS only fallback)
    ============================================ */
 [data-fade-up] {
