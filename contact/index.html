@@ -359,6 +359,90 @@
             height: 20px;
         }
         
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            border-top: 1px solid #2a2a2a;
+        }
+        .faq-wrapper { }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .faq-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #666;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .faq-eyebrow::before, .faq-eyebrow::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: #666;
+        }
+        .faq-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 500;
+        }
+        .faq-list { }
+        .faq-item {
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .faq-item:first-child {
+            border-top: 1px solid #2a2a2a;
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #f5f5f3;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: color 0.3s ease;
+        }
+        .faq-question:hover { color: #999; }
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            color: #666;
+        }
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 1.5rem;
+        }
+        .faq-answer p {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: #999;
+            margin-bottom: 0.75rem;
+        }
+        .faq-answer p:last-child { margin-bottom: 0; }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .contact-info-grid {
@@ -418,7 +502,7 @@
                     <em>samenwerken</em>
                 </h1>
                 <p class="contact-mega-subtitle" data-fade-up data-delay="0.2">
-                    Of je nu een commercieel project hebt, een evenement wilt vastleggen, of iets heel anders – ik hoor graag van je en denk met plezier mee.
+                    Opzoek naar iemand die jouw bedrijf, evenement of project op een unieke manier in beeld brengt? Plan een (digitale) kop koffie met me in!
                 </p>
                 <a href="mailto:info@itssobi.nl" class="contact-mega-cta" data-magnetic data-fade-up data-delay="0.4">
                     <span>info@itssobi.nl</span>
@@ -482,7 +566,7 @@
             <div class="contact-form-header">
                 <h2 class="contact-form-title" data-fade-up>Stuur een bericht</h2>
                 <p class="contact-form-subtitle" data-fade-up data-delay="0.1">
-                    Vertel me over je project en ik neem zo snel mogelijk contact op.
+                    Vertel me over je project en ik plan zo snel mogelijk een (digitale) kop koffie in.
                 </p>
             </div>
             
@@ -510,6 +594,72 @@
             </form>
         </section>
         
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="faq-wrapper">
+                <div class="faq-header">
+                    <span class="faq-eyebrow" data-fade-up>Veelgestelde vragen</span>
+                    <h2 class="faq-title" data-fade-up data-delay="0.1">Nog vragen?</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item" data-fade-up data-delay="0.1">
+                        <button class="faq-question">
+                            <span>Waar fotografeer je mee?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>Standaard:</strong><br>
+                            – Canon EOS R5<br>
+                            – Canon RF 24/70mm 2.8 L USM<br>
+                            – Canon EF 70/200mm 2.8 L IS USM III</p>
+                            <p><strong>Optioneel:</strong><br>
+                            – Canon 5D IV<br>
+                            – Canon RF 15/35mm 2.8 L IS USM<br>
+                            – DJI FPV drone</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-fade-up data-delay="0.15">
+                        <button class="faq-question">
+                            <span>Hoeveel kost je per uur?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Dat ligt aan een hoop factoren. Is het een eenmalig project of wil je vaker van mijn kunsten gebruik maken? Hoeveel focus moet er liggen op dit project, wat voor apparatuur is er voor nodig en hoe snel moeten de foto's af zijn?</p>
+                            <p>Dit zijn een paar voorbeelden waardoor er niet een precieze hoeveelheid genoemd kan worden. Meedenken doe ik overigens graag, dus het handigste is om contact met me op te nemen en een (digitale) kop koffie in te plannen.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-fade-up data-delay="0.2">
+                        <button class="faq-question">
+                            <span>Wanneer kan ik van je kunsten gebruik maken?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Als de agenda het toelaat zo spoedig mogelijk, maar ook mijn agenda raakt wel eens vol. Twijfel dus niet te lang en neem contact met me op!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-fade-up data-delay="0.25">
+                        <button class="faq-question">
+                            <span>Ik weet niet of je bekend bent met mijn branche. Kan ik alsnog contact opnemen?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Van dieren tot bruiloften, van wintersportevenementen tot baby's, van auto's tot kitesurfen en van zakelijke conferenties tot motorcross — door de jaren heen heb ik in aardig wat branches gefotografeerd.</p>
+                            <p>Nieuwe branches of uitdagingen ga ik zeker niet uit de weg. Ik ben altijd gemotiveerd om iets moois en unieks van het project te maken. Neem dus snel contact met me op om een (digitale) kop koffie in te plannen.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-fade-up data-delay="0.3">
+                        <button class="faq-question">
+                            <span>Ik heb een grandioos plan waar je exposure voor terugkrijgt. Deal?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nee. Of wacht… Nee nog steeds niet. 😄</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Social Links -->
         <section class="contact-social-section">
             <span class="contact-social-title">Volg mij op</span>
@@ -574,5 +724,15 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js"></script>
     <script src="../app.js?v=1738944000"></script>
+    <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const wasActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!wasActive) item.classList.add('active');
+        });
+    });
+    </script>
 </body>
 </html>
