@@ -2296,8 +2296,8 @@ body.menu-open {
     overflow: hidden;
 }
 
-/* Mobile: Show hamburger, hide nav */
-@media (max-width: 768px) {
+/* Mobile/Tablet: Show hamburger, hide nav */
+@media (max-width: 1024px) {
     .hamburger {
         display: flex;
     }

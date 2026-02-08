@@ -8,17 +8,24 @@ gsap.registerPlugin(ScrollTrigger, Flip);
 // ============================================
 // Lenis Smooth Scroll
 // ============================================
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-    smoothTouch: true,
-    touchMultiplier: 1.5,
+    smoothWheel: !isTouchDevice,
+    smoothTouch: false,
+    touchMultiplier: 1,
 });
 
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add((time) => lenis.raf(time * 1000));
-gsap.ticker.lagSmoothing(0);
+if (!isTouchDevice) {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+} else {
+    // Native scroll on touch - just sync ScrollTrigger
+    ScrollTrigger.defaults({ scroller: window });
+}
 
 // ============================================
 // Custom Cursor
