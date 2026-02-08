@@ -610,16 +610,30 @@ setTimeout(initBentoAnimation, 1000);
 // Timeline Scroll Animation
 // ============================================
 function initTimelineAnimation() {
+    // Observe the section itself for line draw
+    const section = document.querySelector(".timeline-section");
+    if (section) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                }
+            });
+        }, { threshold: 0.1 });
+        sectionObserver.observe(section);
+    }
+
+    // Observe individual items with staggered delay
     const timelineItems = document.querySelectorAll("[data-timeline]");
-    
     if (!timelineItems.length) return;
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
+                const index = Array.from(timelineItems).indexOf(entry.target);
                 setTimeout(() => {
                     entry.target.classList.add("is-visible");
-                }, index * 200);
+                }, index * 300);
             }
         });
     }, {
@@ -630,9 +644,7 @@ function initTimelineAnimation() {
     timelineItems.forEach(item => observer.observe(item));
 }
 
-// Initialize
 document.addEventListener("DOMContentLoaded", initTimelineAnimation);
-setTimeout(initTimelineAnimation, 500);
 
 // ============================================
 // Mobile Hamburger Menu
