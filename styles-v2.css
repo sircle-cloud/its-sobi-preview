@@ -474,6 +474,8 @@ body.cursor-view .cursor-text {
 .bento-image {
     position: absolute;
     inset: -1px !important;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .bento-image img {
