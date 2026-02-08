@@ -1661,10 +1661,17 @@ body.cursor-view .cursor-text {
    SIMPLE FIXES - About & Work sections
    ============================================ */
 
-/* About: meer padding boven en onder, caption weg */
+/* About: padding */
 .about {
     padding-top: 80px;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
+}
+
+@media (max-width: 1024px) {
+    .about {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
 }
 
 .about-image {
@@ -2439,13 +2446,16 @@ body.menu-open {
     .about-image-col {
         display: block !important;
         order: -1;
+        padding: 0 var(--space-md);
     }
     
     .about-image {
-        max-width: 280px;
+        max-width: 200px;
         margin: 0 auto;
         border-radius: 200px;
         overflow: hidden;
+        top: 0;
+        height: auto;
     }
     
     .about-image img {
