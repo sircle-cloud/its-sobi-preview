@@ -1627,6 +1627,18 @@ body.cursor-view .cursor-text {
     color: #1a1a1a;
 }
 
+.work .btn-line {
+    color: #1a1a1a;
+}
+
+.work .btn-line::after {
+    background: #1a1a1a;
+}
+
+.work .btn-line svg {
+    stroke: #1a1a1a;
+}
+
 /* ============================================
    ABOUT PAGE FIXES - Premium Polish
    ============================================ */
