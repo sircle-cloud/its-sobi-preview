@@ -6,25 +6,24 @@
 gsap.registerPlugin(ScrollTrigger, Flip);
 
 // ============================================
-// Lenis Smooth Scroll
+// Device Detection
 // ============================================
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+const isMobile = isTouchDevice && window.innerWidth <= 1024;
 
-const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: !isTouchDevice,
-    smoothTouch: false,
-    touchMultiplier: 1,
-});
-
+// ============================================
+// Lenis Smooth Scroll (desktop only)
+// ============================================
 if (!isTouchDevice) {
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        smoothTouch: false,
+    });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
-} else {
-    // Native scroll on touch - just sync ScrollTrigger
-    ScrollTrigger.defaults({ scroller: window });
 }
 
 // ============================================
@@ -207,17 +206,19 @@ function initHero() {
         { opacity: 1, y: 0, duration: 1, delay: 1.4, ease: 'power3.out' }
     );
     
-    // Parallax on scroll
-    gsap.to(heroImage, {
-        yPercent: 30,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: hero,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
+    // Parallax on scroll (desktop only)
+    if (!isMobile) {
+        gsap.to(heroImage, {
+            yPercent: 30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: hero,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+    }
     
     // Fade elements
     hero.querySelectorAll('[data-fade-up]').forEach(el => {
@@ -327,19 +328,21 @@ function initBentoGrid() {
             }
         });
         
-        // Image parallax on scroll
-        const img = item.querySelector('.bento-image img');
-        if (img) {
-            gsap.to(img, {
-                yPercent: -10,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: true
-                }
-            });
+        // Image parallax on scroll (desktop only)
+        if (!isMobile) {
+            const img = item.querySelector('.bento-image img');
+            if (img) {
+                gsap.to(img, {
+                    yPercent: -10,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                });
+            }
         }
     });
 }
@@ -398,9 +401,11 @@ function initMarquee() {
 }
 
 // ============================================
-// Parallax Images
+// Parallax Images (desktop only)
 // ============================================
 function initParallax() {
+    if (isMobile) return;
+    
     gsap.utils.toArray('[data-parallax]').forEach(el => {
         const speed = parseFloat(el.dataset.parallax) || 0.2;
         
@@ -421,6 +426,8 @@ function initParallax() {
 // Horizontal Scroll Categories
 // ============================================
 function initHorizontalScroll() {
+    if (isMobile) return;
+    
     const wrap = document.querySelector('[data-horizontal-scroll-wrap]');
     if (!wrap) return;
     
@@ -486,9 +493,11 @@ function initAbout() {
 }
 
 // ============================================
-// Contact CTA
+// Contact CTA (parallax desktop only)
 // ============================================
 function initContactCTA() {
+    if (isMobile) return;
+    
     const cta = document.querySelector('.contact-cta');
     if (!cta) return;
     
@@ -655,8 +664,6 @@ function initMobileMenu() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', initMobileMenu);
-
 // ============================================
 // Stats Fallback - Ensure numbers show
 // ============================================
@@ -700,22 +707,6 @@ function initMobileMenuClose() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', initMobileMenuClose);
-
-// ============================================
-// Re-initialize mobile menu (fallback for late loading)
-// ============================================
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        initMobileMenu();
-        initMobileMenuClose();
-    });
-} else {
-    // DOM already loaded, run immediately
-    initMobileMenu();
-    initMobileMenuClose();
-}
-
 // ============================================
 // IMMEDIATE INITIALIZATION
 // ============================================
@@ -756,10 +747,4 @@ if (document.readyState === 'loading') {
     }
 })();
 
-// Fallback: Re-init mobile menu if DOMContentLoaded already fired
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setTimeout(function() {
-        initMobileMenu();
-        initMobileMenuClose();
-    }, 100);
-}
+// Mobile menu init handled by IIFE above
