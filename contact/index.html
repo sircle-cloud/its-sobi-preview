@@ -142,7 +142,7 @@
             50% { transform: translateY(-30px); }
         }
         
-        /* Info Cards Section - FIXED ALIGNMENT */
+        /* Info Cards Section */
         .contact-info-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -313,74 +313,6 @@
         .form-submit-btn:hover svg {
             transform: translateX(4px);
         }
-        
-        /* Social Links Section */
-        .contact-social-section {
-            text-align: center;
-            padding: var(--space-lg) var(--space-lg);
-            border-top: 1px solid var(--grey);
-        }
-        
-        .contact-social-title {
-            font-size: var(--text-xs);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--grey-mid);
-            margin-bottom: var(--space-md);
-        }
-        
-        .contact-social-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-sm);
-        }
-        
-        .contact-social-link {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--grey);
-            border-radius: 50%;
-            color: var(--grey-light);
-            transition: all 0.4s var(--ease-out-expo);
-        }
-        
-        .contact-social-link:hover {
-            border-color: var(--white);
-            color: var(--white);
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.05);
-        }
-        
-        .contact-social-link svg {
-            width: 20px;
-            height: 20px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .contact-info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .contact-hero-mega {
-                min-height: 60vh;
-                padding: var(--space-lg);
-                padding-top: calc(var(--space-lg) + 80px);
-            }
-            
-            .contact-info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-        }
 
         /* FAQ Section */
         .faq-section {
@@ -463,6 +395,74 @@
             margin-bottom: 0.75rem;
         }
         .faq-answer p:last-child { margin-bottom: 0; }
+        
+        /* Social Links Section */
+        .contact-social-section {
+            text-align: center;
+            padding: var(--space-lg) var(--space-lg);
+            border-top: 1px solid var(--grey);
+        }
+        
+        .contact-social-title {
+            font-size: var(--text-xs);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--grey-mid);
+            margin-bottom: var(--space-md);
+        }
+        
+        .contact-social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+        
+        .contact-social-link {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--grey);
+            border-radius: 50%;
+            color: var(--grey-light);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .contact-social-link:hover {
+            border-color: var(--white);
+            color: var(--white);
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .contact-social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero-mega {
+                min-height: 60vh;
+                padding: var(--space-lg);
+                padding-top: calc(var(--space-lg) + 80px);
+            }
+            
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -523,43 +523,155 @@
             <a href="mailto:robert@itssobi.com" class="mobile-menu-email">robert@itssobi.com</a>
         </div>
     </div>
-                    <div class="faq-item" data-fade-up data-delay="0.15">
-                        <button class="faq-question">
-                            <span>Hoeveel kost je per uur?</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Dat ligt aan een hoop factoren. Is het een eenmalig project of wil je vaker van mijn kunsten gebruik maken? Hoeveel focus moet er liggen op dit project, wat voor apparatuur is er voor nodig en hoe snel moeten de foto's af zijn?</p>
-                            <p>Dit zijn een paar voorbeelden waardoor er niet een precieze hoeveelheid genoemd kan worden. Meedenken doe ik overigens graag, dus het handigste is om contact met me op te nemen en een (digitale) kop koffie in te plannen.</p>
-                        </div>
+
+    <main class="contact-page">
+        <!-- Big Hero Section -->
+        <section class="contact-hero-mega">
+            <div class="contact-deco contact-deco-1"></div>
+            <div class="contact-deco contact-deco-2"></div>
+            
+            <div class="contact-hero-content">
+                <span class="contact-eyebrow" data-fade-up>Klaar voor iets bijzonders?</span>
+                <h1 class="contact-mega-title" data-split-lines>
+                    Laten we<br>
+                    <em>samenwerken</em>
+                </h1>
+                <p class="contact-mega-subtitle" data-fade-up data-delay="0.2">
+                    Of je nu een commercieel project hebt, een evenement wilt vastleggen, of iets heel anders – ik hoor graag van je en denk met plezier mee.
+                </p>
+                <a href="mailto:robert@itssobi.com" class="contact-mega-cta" data-magnetic data-fade-up data-delay="0.4">
+                    <span>robert@itssobi.com</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Info Cards -->
+        <section class="contact-info-grid">
+            <div class="contact-card" data-fade-up>
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <span class="contact-card-label">Email</span>
+                <span class="contact-card-value">
+                    <a href="mailto:robert@itssobi.com">robert@itssobi.com</a>
+                </span>
+            </div>
+            
+            <div class="contact-card" data-fade-up data-delay="0.1">
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
+                <span class="contact-card-label">Locatie</span>
+                <span class="contact-card-value">Heemskerk, Nederland</span>
+            </div>
+            
+            <div class="contact-card" data-fade-up data-delay="0.2">
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                    </svg>
+                </div>
+                <span class="contact-card-label">Beschikbaar</span>
+                <span class="contact-card-value">Wereldwijd</span>
+            </div>
+            
+            <div class="contact-card" data-fade-up data-delay="0.3">
+                <div class="contact-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <span class="contact-card-label">Reactietijd</span>
+                <span class="contact-card-value">Binnen 24 uur</span>
+            </div>
+        </section>
+        
+        <!-- Contact Form -->
+        <section class="contact-form-section">
+            <div class="contact-form-header">
+                <h2 class="contact-form-title" data-fade-up>Stuur een bericht</h2>
+                <p class="contact-form-subtitle" data-fade-up data-delay="0.1">
+                    Vertel me over je project en ik neem zo snel mogelijk contact op.
+                </p>
+            </div>
+            
+            <form class="contact-form" action="mailto:robert@itssobi.com" enctype="text/plain" method="POST">
+                <div class="form-group" data-fade-up data-delay="0.2">
+                    <input type="text" name="name" class="form-input" placeholder="Je naam" required>
+                </div>
+                <div class="form-group" data-fade-up data-delay="0.25">
+                    <input type="email" name="email" class="form-input" placeholder="Email adres" required>
+                </div>
+                <div class="form-group full-width" data-fade-up data-delay="0.3">
+                    <input type="text" name="subject" class="form-input" placeholder="Onderwerp">
+                </div>
+                <div class="form-group full-width" data-fade-up data-delay="0.35">
+                    <textarea name="message" class="form-textarea" placeholder="Vertel me over je project..." required></textarea>
+                </div>
+                <div class="form-submit" data-fade-up data-delay="0.4">
+                    <button type="submit" class="form-submit-btn" data-magnetic>
+                        <span>Verstuur bericht</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-header">
+                <span class="faq-eyebrow" data-fade-up>Veelgestelde vragen</span>
+                <h2 class="faq-title" data-fade-up data-delay="0.1">FAQ</h2>
+            </div>
+            <div class="faq-items">
+                <div class="faq-item" data-fade-up data-delay="0.1">
+                    <button class="faq-question">
+                        <span>Hoeveel kost je per uur?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Dat ligt aan een hoop factoren. Is het een eenmalig project of wil je vaker van mijn kunsten gebruik maken? Hoeveel focus moet er liggen op dit project, wat voor apparatuur is er voor nodig en hoe snel moeten de foto's af zijn?</p>
+                        <p>Dit zijn een paar voorbeelden waardoor er niet een precieze hoeveelheid genoemd kan worden. Meedenken doe ik overigens graag, dus het handigste is om contact met me op te nemen en een (digitale) kop koffie in te plannen.</p>
                     </div>
-                    <div class="faq-item" data-fade-up data-delay="0.2">
-                        <button class="faq-question">
-                            <span>Wanneer kan ik van je kunsten gebruik maken?</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Als de agenda het toelaat zo spoedig mogelijk, maar ook mijn agenda raakt wel eens vol. Twijfel dus niet te lang en neem contact met me op!</p>
-                        </div>
+                </div>
+                <div class="faq-item" data-fade-up data-delay="0.15">
+                    <button class="faq-question">
+                        <span>Wanneer kan ik van je kunsten gebruik maken?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Als de agenda het toelaat zo spoedig mogelijk, maar ook mijn agenda raakt wel eens vol. Twijfel dus niet te lang en neem contact met me op!</p>
                     </div>
-                    <div class="faq-item" data-fade-up data-delay="0.25">
-                        <button class="faq-question">
-                            <span>Ik weet niet of je bekend bent met mijn branche. Kan ik alsnog contact opnemen?</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Van dieren tot bruiloften, van wintersportevenementen tot baby's, van auto's tot kitesurfen en van zakelijke conferenties tot motorcross — door de jaren heen heb ik in aardig wat branches gefotografeerd.</p>
-                            <p>Nieuwe branches of uitdagingen ga ik zeker niet uit de weg. Ik ben altijd gemotiveerd om iets moois en unieks van het project te maken. Neem dus snel contact met me op om een (digitale) kop koffie in te plannen.</p>
-                        </div>
+                </div>
+                <div class="faq-item" data-fade-up data-delay="0.2">
+                    <button class="faq-question">
+                        <span>Ik weet niet of je bekend bent met mijn branche. Kan ik alsnog contact opnemen?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Van dieren tot bruiloften, van wintersportevenementen tot baby's, van auto's tot kitesurfen en van zakelijke conferenties tot motorcross — door de jaren heen heb ik in aardig wat branches gefotografeerd.</p>
+                        <p>Nieuwe branches of uitdagingen ga ik zeker niet uit de weg. Ik ben altijd gemotiveerd om iets moois en unieks van het project te maken. Neem dus snel contact met me op om een (digitale) kop koffie in te plannen.</p>
                     </div>
-                    <div class="faq-item" data-fade-up data-delay="0.3">
-                        <button class="faq-question">
-                            <span>Ik heb een grandioos plan waar je exposure voor terugkrijgt. Deal?</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Nee. Of wacht… Nee nog steeds niet. 😄</p>
-                        </div>
+                </div>
+                <div class="faq-item" data-fade-up data-delay="0.25">
+                    <button class="faq-question">
+                        <span>Ik heb een grandioos plan waar je exposure voor terugkrijgt. Deal?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nee. Of wacht… Nee nog steeds niet. 😄</p>
                     </div>
                 </div>
             </div>
@@ -583,6 +695,8 @@
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
